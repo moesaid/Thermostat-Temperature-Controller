@@ -1,3 +1,12 @@
+
+<img width="1536" height="1024" alt="temp" src="https://github.com/user-attachments/assets/6fdb91fe-f6c1-4b62-a5b2-50946108e326" />
+
+
+
+
+
+
+
 # Smart Temperature & Humidity Control System
 
 This project is a **non-blocking, Arduino-based environmental controller** that automatically manages a heater and fan using real-time data from a **DHT22 sensor**. It displays temperature, humidity, and setpoint values on an **LCD1602/I2C display**, ensuring stable climate control through hysteresis and minimum on/off safety timers.

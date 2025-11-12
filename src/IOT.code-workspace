@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "Thermostat_Temperature_Controller",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}

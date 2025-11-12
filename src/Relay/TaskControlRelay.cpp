@@ -25,6 +25,23 @@ void taskControlRelay()
     if (isnan(gCurrentTemperature))
         return;
 
+    // === Fail-safe: turn OFF outputs if sensor is not OK or data is stale ===
+    if (!gSensorOk)
+    {
+        // Fail-safe: turn outputs OFF if data is stale
+        if (gHeaterOn)
+        {
+            gHeaterOn = false;
+            relayWrite(PIN_RELAY_HEAT, false);
+        }
+        if (gFanOn)
+        {
+            gFanOn = false;
+            relayWrite(PIN_RELAY_FAN, false);
+        }
+        return;
+    }
+
     // === Define hysteresis thresholds ===
     // The heater will turn ON when temperature <= lowThresh
     // and turn OFF when temperature >= highThresh.
@@ -38,6 +55,8 @@ void taskControlRelay()
     // If the heater is currently OFF, decide whether to turn it ON
     if (!gHeaterOn)
     {
+
+
         // Only turn ON if:
         // 1) Temperature is below the lower threshold, AND
         // 2) The heater has been OFF for at least MIN_OFF_MS

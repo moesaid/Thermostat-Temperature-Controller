@@ -38,6 +38,8 @@ void taskReadSensors()
     else
     {
         gSensorOk = false;
+        gCurrentTemperature = NAN;
+        gCurrentHumidity = NAN;
         Serial.println(F("Sensor read error"));
         if (gLcdReady)
         {
